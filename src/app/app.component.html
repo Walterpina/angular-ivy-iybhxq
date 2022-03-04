@@ -1,0 +1,22 @@
+<hello name="{{ name }}"></hello>
+<p>Start editing to see some magic happen :)</p>
+<form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+  <div *ngIf="formdata.value['file']">
+    <img [src]="formdata.value.file" width="50px" />
+    <button (click)="alterarAvatar()">Editar</button>
+  </div>
+  <br />
+  <input type="text" formControlName="email" />
+  <br />
+  <input type="password" formControlName="passwd" />
+  <br />
+  <input *ngIf="btnAlterarAvatar" type="file" formControlName="file" />
+  <br />
+  <input type="submit" value="submit" />
+  <br />
+  <br />
+  <br />
+  <pre>
+  {{ formdata.value | json }}
+  </pre>
+</form>
